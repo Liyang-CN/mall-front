@@ -41,6 +41,7 @@ export default {
           // 登陆成功
           localStorage.setItem("isLogin", true);
           localStorage.setItem('uid',res.data.list.uid)
+          localStorage.setItem('token',res.data.list.token)
           this.$router.push("/index/home");
         }
         

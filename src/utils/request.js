@@ -4,13 +4,13 @@ import axios from 'axios'
 let baseUrl = '/api'
 
 // 请求拦截 每次发起请求都要做的事，
-// axios.interceptors.request.use(config => {
-//     // console.log(config);
-//     if (config.url != baseUrl + '/login') {
-//         config.headers.token = localStorage.getItem('token')
-//     }
-//     return config
-// })
+axios.interceptors.request.use(config => {
+    // console.log(config);
+    if (config.url != baseUrl + '/login') {
+        config.headers.authorization = localStorage.getItem('token')
+    }
+    return config
+})
 
 // 响应拦截：服务器响应组件，每次都要做的事，return的内容才是组件收到的内容
 axios.interceptors.response.use(res => {

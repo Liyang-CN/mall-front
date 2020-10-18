@@ -17,7 +17,7 @@
               <img :src="item.checked ? radio_hig : radio_nor" alt="" />
             </div>
             <div class="center">
-              <img :src="'http://localhost:3000'+item.img" alt="" />
+              <img :src="'http://localhost:3000' + item.img" alt="" />
             </div>
             <div class="right">
               <div class="name">{{ item.goodsname }}</div>
@@ -64,7 +64,7 @@
       v-if="isShow"
     ></toast>
     <!-- 提示删除成功 -->
-    <toast tit="删除成功！"  @hide="isDelPage = false" v-if="isDelPage"></toast>
+    <toast tit="删除成功！" @hide="isDelPage = false" v-if="isDelPage"></toast>
     <!-- 删除对话框 -->
     <div v-if="isDel" @click.self="isDel = false" class="dialog">
       <div class="dialog-con">
@@ -103,7 +103,7 @@ export default {
       isShow: false,
       isDel: false,
       delId: -1,
-      isDelPage:false
+      isDelPage: false,
     };
   },
   computed: {
@@ -161,13 +161,13 @@ export default {
       this.delId = this.shopCartList[index].id;
       // this.requestDelCartList(id);
     },
-    yesDel(){
+    yesDel() {
       this.isDelPage = true;
       this.isDel = false;
       this.requestDelCartList(this.delId);
       // 重新加载购物车列表
       this.requestShopCartList(this.uid);
-    }
+    },
   },
   mounted() {
     var uid = localStorage.getItem("uid");
